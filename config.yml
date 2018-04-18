@@ -1,0 +1,23 @@
+#####################################
+# This plugin Code by MinecraftDawn #
+#####################################
+
+#個人世界資料夾存放位置
+#All personal world Directory path
+#Example 'home'
+WorldPath: 'home'
+
+#在玩家登入時創造個人世界
+#Create a personal on players login on server
+#Example: true
+AutoCreateWorld: true
+
+#創造世界時，會從以下世界名稱複製後創建一個新的個人世界
+#注意！你需要有一個世界資料夾在Minecraft根目錄
+#Copy a world data to new personal world
+#Warning！You need a world in Minecraft root folder
+CopyWorld:
+  #Example: false
+  Enable: false
+  #Example: 'DefaultWorld'
+  CopyWorldName: 'DefaultWorld'
