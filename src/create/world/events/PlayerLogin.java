@@ -34,12 +34,21 @@ public class PlayerLogin implements Listener{
 			}
 			
 			plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
-				
 				@Override
 				public void run() {
-					perWorld.createWorld();
+					Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
+				//	perWorld.createWorld();
+					while(true){
+						plugin.getServer().broadcastMessage("test");
+						try{
+							Thread.sleep(1000);
+						}catch (Exception e) {
+						}
+					}
 				}
 			});
+			plugin.getServer().broadcastMessage("測試訊息");
+			
 			
 		}
 	}
