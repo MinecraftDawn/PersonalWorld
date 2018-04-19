@@ -8,6 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.plugin.Plugin;
 import create.world.Main;
+import create.world.commands.TestThread;
 
 
 public class PlayerLogin implements Listener{
@@ -33,20 +34,24 @@ public class PlayerLogin implements Listener{
 				perWorld.copy(copiedWorld);
 			}
 			
-			plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
-				@Override
-				public void run() {
-					Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
-				//	perWorld.createWorld();
-					while(true){
-						plugin.getServer().broadcastMessage("test");
-						try{
-							Thread.sleep(1000);
-						}catch (Exception e) {
-						}
-					}
-				}
-			});
+//			plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+//				@Override
+//				public void run() {
+//					Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
+//				//	perWorld.createWorld();
+//					while(true){
+//						System.out.println("test");
+//						try{
+//							Thread.sleep(1000);
+//						}catch (Exception e) {
+//						}
+//					}
+//				}
+//			});
+			TestThread test = new TestThread();
+			Thread thr = new Thread(test);
+			thr.setPriority(Thread.MIN_PRIORITY);
+			thr.start();
 			plugin.getServer().broadcastMessage("測試訊息");
 			
 			
