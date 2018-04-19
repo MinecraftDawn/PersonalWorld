@@ -2,6 +2,7 @@ package create.world;
 
 import org.bukkit.WorldCreator;
 
+
 public class PersonalWorldCreator implements Runnable{
 	
 	private WorldCreator world;
@@ -16,5 +17,6 @@ public class PersonalWorldCreator implements Runnable{
 			world.createWorld();
 		}catch (Exception e) {
 		}
+
 	}
 }

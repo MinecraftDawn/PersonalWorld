@@ -1,6 +1,10 @@
 name: CreateWorld
-main: create.world.Main
+main: create.world.CreateWorld
 version: 0.2.1
 
 commands:
   myworld:
+    description: Teleport to your personal world.
+    usage: /myworld
+    aliases: [mw]
+    

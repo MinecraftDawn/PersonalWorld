@@ -8,10 +8,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
-import create.world.Main;
+import create.world.CreateWorld;
 
 public class MyWorld implements CommandExecutor{
-	private final Plugin plugin = Main.plugin;
+	private final Plugin plugin = CreateWorld.plugin;
 	
 	private String worldPath = plugin.getConfig().getString("WorldPath");
 
@@ -24,7 +24,7 @@ public class MyWorld implements CommandExecutor{
 			
 			Location loc = new Location(Bukkit.getWorld(subPath), 100, 100, 100);
 			
-			p.teleport(loc);	
+			p.teleport(loc);
 		}
 		return true;
 	}

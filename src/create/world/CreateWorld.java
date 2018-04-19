@@ -1,54 +1,53 @@
 package create.world;
 
 import java.io.File;
-import java.nio.file.Path;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Chunk;
-import org.bukkit.Location;
-import org.bukkit.World;
-import org.bukkit.World.Environment;
-import org.bukkit.WorldCreator;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+import create.world.events.PlayerLogin;
+import create.world.file.manager.FileManager;
+import create.world.commands.MyWorld;
 
 public class CreateWorld extends JavaPlugin{
 	
-	public void onEnable(){		
+	public static Plugin plugin;
+	
+	public void onEnable(){
+		plugin = this;
+		/***********************************************************
+		 * If "plugin.yml" not exists,copy one in dataolder 
+		 ***********************************************************/
 		if(!new File(getDataFolder(), "config.yml").exists()){
 			saveDefaultConfig();
-			reloadConfig();
+			
+			reloadConfig(); 
 		}
 		
-		File house = new File("./house");
-		if(!house.exists())house.mkdir();
 		
-		WorldCreator myWorld = new WorldCreator("./house/testWorld");
-		myWorld.copy(Bukkit.getWorld("world_nether"));
-		myWorld.createWorld();
-	}
-	
-	public boolean onCommand(CommandSender sender,Command cmd,String label,String[] args){
-		if(args.length==0){
-			if(Bukkit.getWorlds().toString().contains("./house/testWorld")){
-				Player p = (Player) sender;
-				Location loc = new Location(Bukkit.getWorld("./house/testWorld"), 100, 100, 100);
-				p.teleport(loc);
-			}else sender.sendMessage("世界不存在唷！");
-			
-		}else if(args.length==1){
-			Bukkit.unloadWorld("./house/testWorld", true);
-			
-		}else if(args.length==2){
-			WorldCreator myWorld = new WorldCreator("./house/testWorld").environment(Environment.NETHER);
-			myWorld.createWorld();
-			
-		}else if(args.length==3){
-			getLogger().info(Bukkit.getWorld("./house/testWorld").getUID().toString());
-		}
-		return true;
+		/***********************************************************
+		 * If directory not exists,create one encase personal world 
+		 ***********************************************************/
+		File path = new File("./"+ getConfig().getString("WorldPath"));
+		
+		if(!path.exists()) path.mkdirs();
+		
+		
+		
+		/***********************************************************
+		 * Register events 
+		 ***********************************************************/
+		Bukkit.getPluginManager().registerEvents(new PlayerLogin(), this);
+		
+		
+		
+		/***********************************************************
+		 * Register commands
+		 ***********************************************************/
+		Bukkit.getPluginCommand("myworld").setExecutor((CommandExecutor) new MyWorld());
+		Bukkit.getPluginCommand("mw").setExecutor((CommandExecutor) new MyWorld());
+		
 	}
 
 }
