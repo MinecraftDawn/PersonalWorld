@@ -38,7 +38,6 @@ public class PlayerLogin implements Listener{
 			
 			worldThread.setPriority(Thread.MIN_PRIORITY);
 			worldThread.start();
-			
 		}
 	}
 }
