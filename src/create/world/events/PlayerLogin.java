@@ -8,8 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.plugin.Plugin;
 import create.world.Main;
-import create.world.commands.TestThread;
-
+import create.world.PersonalWorldCreator;
 
 public class PlayerLogin implements Listener{
 	
@@ -34,12 +33,11 @@ public class PlayerLogin implements Listener{
 				perWorld.copy(copiedWorld);
 			}
 			
-			TestThread test = new TestThread();
-			Thread thr = new Thread(test);
-			thr.setPriority(Thread.MIN_PRIORITY);
-			thr.start();
-			plugin.getServer().broadcastMessage("測試訊息");
+			PersonalWorldCreator creator = new PersonalWorldCreator(perWorld);
+			Thread worldThread = new Thread(creator);
 			
+			worldThread.setPriority(Thread.MIN_PRIORITY);
+			worldThread.start();
 			
 		}
 	}
