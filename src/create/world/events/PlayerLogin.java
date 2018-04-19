@@ -34,20 +34,6 @@ public class PlayerLogin implements Listener{
 				perWorld.copy(copiedWorld);
 			}
 			
-//			plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
-//				@Override
-//				public void run() {
-//					Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
-//				//	perWorld.createWorld();
-//					while(true){
-//						System.out.println("test");
-//						try{
-//							Thread.sleep(1000);
-//						}catch (Exception e) {
-//						}
-//					}
-//				}
-//			});
 			TestThread test = new TestThread();
 			Thread thr = new Thread(test);
 			thr.setPriority(Thread.MIN_PRIORITY);
