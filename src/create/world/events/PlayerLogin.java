@@ -25,7 +25,7 @@ public class PlayerLogin implements Listener{
 	@EventHandler
 	public void onPlayerLoginEvent(PlayerLoginEvent e){
 		
-		if(plugin.getConfig().getBoolean("AutoCreateWorld")){
+		if(plugin.getConfig().getBoolean("AutoCreateWorld")){ //If auto create world option was enable
 			
 			String subPath = worldPath + "/" + e.getPlayer().getUniqueId().toString();
 			
@@ -40,14 +40,16 @@ public class PlayerLogin implements Listener{
 			
 			PersonalWorldCreator creator = new PersonalWorldCreator(perWorld);
 			
+
+			//Make a new thread to create personal world 
 			Thread worldThread = new Thread(creator);
-			
 			
 			worldThread.setPriority(Thread.MIN_PRIORITY);
 			
 			worldThread.start();
 			
 			
+			//add player to permission file
 			FileManager manager = new FileManager();
 			
 			manager.createPremission(e.getPlayer());

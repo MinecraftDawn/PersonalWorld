@@ -15,11 +15,15 @@ public class MyWorld implements CommandExecutor{
 	
 	private String worldPath = plugin.getConfig().getString("WorldPath");
 
+	/***********************************************************
+	 * Teleport command sender to his personal world 
+	 ***********************************************************/
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		Player p = (Player) sender;
 		
 		if(args.length == 0){
+			
 			String subPath = worldPath + "/" + p.getUniqueId().toString();
 			
 			Location loc = new Location(Bukkit.getWorld(subPath), 100, 100, 100);

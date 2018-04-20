@@ -55,11 +55,9 @@ public class FileManager {
 		String name = p.getName();
 		
 		
-		pmsData.set(uuid + ".name",name);
+		pmsData.set(uuid + ".Owner",name);
 		
 		saveData();
-		
-	//	pmsData.set(uuid + "." +  , );
 		
 	}
 	
