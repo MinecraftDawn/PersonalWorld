@@ -1,4 +1,4 @@
-package personal.world.commands;
+package personal.world.commands.personalworld;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -9,8 +9,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 import personal.world.PersonalWorld;
+import personal.world.commands.IPersonalCommand;
 
-public class CommandPersonalWorld implements IPersonalCommand{
+public class CmdPersonalWorld implements IPersonalCommand{
 	private final Plugin plugin = PersonalWorld.plugin;
 	
 	private String worldPath = plugin.getConfig().getString("WorldPath");
@@ -21,6 +22,14 @@ public class CommandPersonalWorld implements IPersonalCommand{
 	 ***********************************************************/
 	@Override
 	public void run(CommandSender sender, Command cmd, String[] args) {
+		
+		if(! sender.hasPermission("personalworld.tp")){
+			
+			sender.sendMessage("你沒權限");
+			
+			return;
+		}
+		
 		Player p = (Player) sender;
 		
 		if(args.length == 0){

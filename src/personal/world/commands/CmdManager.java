@@ -4,21 +4,31 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-public class CommandManager implements CommandExecutor{
+import personal.world.commands.personalworld.CmdPersonalWorld;
+import personal.world.commands.personalworld.tp.CmdPersonalWorldTeleport;
+
+public class CmdManager implements CommandExecutor{
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		if(label.equalsIgnoreCase("PW") || label.equalsIgnoreCase("PersonalWorld")){
+		if(label.equalsIgnoreCase("PW") || label.equalsIgnoreCase("PersonalWorld")){ //pw
 			
 			if(args.length == 0){
-				CommandPersonalWorld PW = new CommandPersonalWorld();
+				CmdPersonalWorld PW = new CmdPersonalWorld();
 				
 				PW.run(sender, cmd, args);
 				
-			}else if(args.length == 1){
+				return true;
 				
+			}		
+			
+			if(args[0].equalsIgnoreCase("tp")){ //pw tp
+				CmdPersonalWorldTeleport tp = new CmdPersonalWorldTeleport();
 				
+				tp.run(sender, cmd, args);
 			}
+				
+			
 			
 			
 		}

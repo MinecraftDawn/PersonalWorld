@@ -7,8 +7,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import personal.world.commands.CommandManager;
-import personal.world.commands.CommandPersonalWorld;
+import personal.world.commands.CmdManager;
+import personal.world.commands.personalworld.CmdPersonalWorld;
 import personal.world.events.PlayerLogin;
 import personal.world.file.manager.FileManager;
 
@@ -47,8 +47,8 @@ public class PersonalWorld extends JavaPlugin{
 		/***********************************************************
 		 * Register commands
 		 ***********************************************************/
-		Bukkit.getPluginCommand("personalworld").setExecutor((CommandExecutor) new CommandManager());
-		Bukkit.getPluginCommand("pw").setExecutor((CommandExecutor) new CommandManager());
+		Bukkit.getPluginCommand("personalworld").setExecutor((CommandExecutor) new CmdManager());
+		Bukkit.getPluginCommand("pw").setExecutor((CommandExecutor) new CmdManager());
 		
 	}
 
