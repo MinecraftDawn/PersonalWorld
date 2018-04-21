@@ -1,10 +1,10 @@
 name: PersonalWorld
 main: personal.world.PersonalWorld
-version: 0.3
+version: 0.3.0
 
 commands:
   personalworld:
     description: Teleport to your personal world.
     usage: /personalworld
-    aliases: [PW]
+    aliases: [pw]
     
