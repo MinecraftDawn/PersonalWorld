@@ -38,16 +38,22 @@ public class FileManager {
 		}
 	}
 	
-	private void setYmlFile(YamlConfiguration yml,String ... args){ //setYmlFile( ymlFile , args[1] , args[2] , ... , data)\
-		String field = args[0];
+	private void setYmlFile(YamlConfiguration yml,Object ... args){ //setYmlFile( ymlFile , args[1] , args[2] , ... , data)\
+		String field = args[0].toString();
 		
-		String data = args[args.length-1];
+		Object data = args[args.length-1];
 		
 		for(int i = 1; i < args.length-1 ; i++){
-			field += "." + args[i] ;
+			field += "." + args[i].toString() ;
 		}
 		
-		yml.set(field, data);
+		if(data != null)
+		
+			yml.set(field, data);
+		
+		else
+			
+			yml.set(field, null);
 		
 		saveData();
 	}
@@ -68,9 +74,11 @@ public class FileManager {
 		
 		String name = p.getName();
 		
+		String[] tpPermission = {};
+		
 		setYmlFile(pmsData,uuid,"Owner",name);
 		
-		
+		setYmlFile(pmsData,uuid,"Permission",tpPermission);
 		
 	}
 	
