@@ -38,6 +38,20 @@ public class FileManager {
 		}
 	}
 	
+	private void setYmlFile(YamlConfiguration yml,String ... args){ //setYmlFile( ymlFile , args[1] , args[2] , ... , data)\
+		String field = args[0];
+		
+		String data = args[args.length-1];
+		
+		for(int i = 1; i < args.length-1 ; i++){
+			field += "." + args[i] ;
+		}
+		
+		yml.set(field, data);
+		
+		saveData();
+	}
+	
 	public FileManager(){
 		permission = new File(plugin.getDataFolder(), "Permissions.yml");
 		
@@ -54,10 +68,9 @@ public class FileManager {
 		
 		String name = p.getName();
 		
+		setYmlFile(pmsData,uuid,"Owner",name);
 		
-		pmsData.set(uuid + ".Owner",name);
 		
-		saveData();
 		
 	}
 	
