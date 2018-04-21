@@ -10,7 +10,7 @@ import org.bukkit.plugin.Plugin;
 
 import create.world.CreateWorld;
 
-public class MyWorld implements CommandExecutor{
+public class CommandMyWorld implements CommandExecutor{
 	private final Plugin plugin = CreateWorld.plugin;
 	
 	private String worldPath = plugin.getConfig().getString("WorldPath");

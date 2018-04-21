@@ -6,9 +6,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import create.world.commands.CommandMyWorld;
 import create.world.events.PlayerLogin;
 import create.world.file.manager.FileManager;
-import create.world.commands.MyWorld;
 
 public class CreateWorld extends JavaPlugin{
 	
@@ -45,8 +46,8 @@ public class CreateWorld extends JavaPlugin{
 		/***********************************************************
 		 * Register commands
 		 ***********************************************************/
-		Bukkit.getPluginCommand("myworld").setExecutor((CommandExecutor) new MyWorld());
-		Bukkit.getPluginCommand("mw").setExecutor((CommandExecutor) new MyWorld());
+		Bukkit.getPluginCommand("myworld").setExecutor((CommandExecutor) new CommandMyWorld());
+		Bukkit.getPluginCommand("mw").setExecutor((CommandExecutor) new CommandMyWorld());
 		
 	}
 
