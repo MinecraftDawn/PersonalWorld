@@ -21,3 +21,7 @@ CopyWorld:
   Enable: false
   #Example: 'DefaultWorld'
   CopyWorldName: 'DefaultWorld'
+
+#當玩家登出時卸載個人世界
+#When the player logout,unload his personal world
+AutoUnloadWorld: true

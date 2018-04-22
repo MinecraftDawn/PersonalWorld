@@ -10,6 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import personal.world.commands.CmdManager;
 import personal.world.commands.personalworld.CmdPersonalWorld;
 import personal.world.events.PlayerLogin;
+import personal.world.events.PlayerLogout;
 import personal.world.file.manager.FileManager;
 
 public class PersonalWorld extends JavaPlugin{
@@ -40,8 +41,8 @@ public class PersonalWorld extends JavaPlugin{
 		/***********************************************************
 		 * Register events 
 		 ***********************************************************/
-		Bukkit.getPluginManager().registerEvents(new PlayerLogin(), this);
-		
+		Bukkit.getPluginManager().registerEvents(new PlayerLogin() , this);
+		Bukkit.getPluginManager().registerEvents(new PlayerLogout(), this);
 		
 		
 		/***********************************************************

@@ -1,5 +1,7 @@
 package personal.world.commands.personalworld.tp;
 
+import java.util.UUID;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -27,22 +29,28 @@ public class CmdPersonalWorldTeleport implements IPersonalCommand{
 		}
 		
 		Player target = Bukkit.getPlayerExact(args[1]);
+		
 		if(target == null){
 			sender.sendMessage("不存在" + args[1]);
+			
 			return;
 		}
 		
-		String tpworld = Bukkit.getServer().getPlayer(args[1]).getUniqueId().toString();
+		UUID tpworld = Bukkit.getServer().getPlayer(args[1]).getUniqueId();
 		
-		String subPath = worldPath + "/" + tpworld;
+		if(! Bukkit.getServer().getWorlds().contains(tpworld)){
+			sender.sendMessage("不存在的世界" + args[1]);
+			
+			return;
+		}
+		
+		String subPath = worldPath + "/" + tpworld.toString();
 		
 		Location loc = new Location(Bukkit.getWorld(subPath), 100, 100, 100);
 		
 		Player p = (Player) sender;
 		
 		p.teleport(loc);
-		sender.sendMessage("wwww");
-		
 	}
 
 }
