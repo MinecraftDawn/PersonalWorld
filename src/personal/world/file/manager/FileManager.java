@@ -47,10 +47,10 @@ public class FileManager {
 	
 	private String arrToStr(String[] args){
 		
-		String field = args[0].toString();
+		String field = args[0];
 		
 		for(int i = 1; i < args.length ; i++){
-			field += "." + args[i].toString() ;
+			field += "." + args[i];
 		}
 		
 		return field;
@@ -114,8 +114,12 @@ public class FileManager {
 		
 		setPmsYml(uuid,"Owner",name);
 		
-		setPmsYml(uuid,"Permission",tpPermission);
+		if(! pmsData.contains(uuid + ".Permission")){
+			
+			setPmsYml(uuid,"Permission",tpPermission);
+		}
 		
+		saveData();
 	}
 	
 }

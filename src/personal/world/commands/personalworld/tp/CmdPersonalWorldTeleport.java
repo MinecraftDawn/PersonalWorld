@@ -11,6 +11,7 @@ import org.bukkit.plugin.Plugin;
 
 import personal.world.PersonalWorld;
 import personal.world.commands.IPersonalCommand;
+import personal.world.commands.personalworld.CmdPersonalWorld;
 import personal.world.file.manager.FileManager;
 
 public class CmdPersonalWorldTeleport implements IPersonalCommand{
@@ -24,11 +25,22 @@ public class CmdPersonalWorldTeleport implements IPersonalCommand{
 	@Override
 	public void run(CommandSender sender, Command cmd, String[] args) {
 		
+		Player p = (Player) sender;
+		
 		Player target = Bukkit.getPlayerExact(args[1]);
+		
+//		if(sender.equals(target)){
+//			
+//			CmdPersonalWorld PW = new CmdPersonalWorld();
+//			
+//			PW.run(sender, cmd, args);
+//			
+//			return;
+//		}
 		
 		if(!sender.hasPermission("personalworld.tp.other")){
 			
-			sender.sendMessage("你沒權限");
+			sender.sendMessage("你沒系統權限");
 			
 			return;
 		}
@@ -41,12 +53,18 @@ public class CmdPersonalWorldTeleport implements IPersonalCommand{
 		}
 		
 		
-		UUID tpworld = Bukkit.getServer().getPlayer(args[1]).getUniqueId();
+		if(! yml.getPmsYmlStrList(target.getUniqueId().toString(),"Permission").contains(p.getUniqueId().toString())){
+			
+			sender.sendMessage("你沒該世界權限");
+			
+			return;
+		}
 		
+		UUID tpworld = Bukkit.getServer().getPlayer(args[1]).getUniqueId();
 		
 		if(! Bukkit.getServer().getWorlds().contains(tpworld)){
 			
-			sender.sendMessage("不存在的世界" + args[1]);
+			sender.sendMessage("不存在的世界： " + args[1]);
 			
 			return;
 		}
@@ -55,7 +73,7 @@ public class CmdPersonalWorldTeleport implements IPersonalCommand{
 		
 		Location loc = new Location(Bukkit.getWorld(subPath), 100, 100, 100);
 		
-		Player p = (Player) sender;
+		
 		
 		p.teleport(loc);
 	}

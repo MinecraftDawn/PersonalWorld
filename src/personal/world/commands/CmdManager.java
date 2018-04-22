@@ -23,13 +23,16 @@ public class CmdManager implements CommandExecutor{
 			}		
 			
 			if(args[0].equalsIgnoreCase("tp")){ //pw tp
+				if(args.length == 1){
+					
+					sender.sendMessage("參數不夠");
+					return true;
+				}
+				
 				CmdPersonalWorldTeleport tp = new CmdPersonalWorldTeleport();
 				
 				tp.run(sender, cmd, args);
 			}
-				
-			
-			
 			
 		}
 		return true;

@@ -27,7 +27,7 @@ public class PersonalWorld extends JavaPlugin{
 			
 			reloadConfig(); 
 		}
-		
+
 		
 		/***********************************************************
 		 * If directory not exists,create one encase personal world 

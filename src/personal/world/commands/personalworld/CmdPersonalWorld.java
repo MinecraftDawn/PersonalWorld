@@ -30,15 +30,13 @@ public class CmdPersonalWorld implements IPersonalCommand{
 		}
 		
 		Player p = (Player) sender;
+			
+		String subPath = worldPath + "/" + p.getUniqueId().toString();
 		
-		if(args.length == 0){
-			
-			String subPath = worldPath + "/" + p.getUniqueId().toString();
-			
-			Location loc = new Location(Bukkit.getWorld(subPath), 100, 100, 100);
-			
-			p.teleport(loc);
-		}
+		Location loc = new Location(Bukkit.getWorld(subPath), 100, 100, 100);
+		
+		p.teleport(loc);
+		
 		return;
 		
 	}
