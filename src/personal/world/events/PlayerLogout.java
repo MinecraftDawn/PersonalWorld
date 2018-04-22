@@ -8,25 +8,22 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.Plugin;
 
 import personal.world.PersonalWorld;
+import personal.world.file.manager.FileManager;
 
 public class PlayerLogout implements Listener{
 	
 	private Plugin plugin = PersonalWorld.plugin;
 	
-	private String worldPath;
-	
-	public PlayerLogout() {
-		worldPath = plugin.getConfig().getString("WorldPath");
-	}
+	private FileManager yml = FileManager.getInstance();
 	
 	@EventHandler
 	public void onPlayerLogoutEvent(PlayerQuitEvent e){ 
 		
 		if(plugin.getConfig().getBoolean("AutoUnloadWorld")){ //unload personal when the player logout
 			
-			String subPath = worldPath + "/" + e.getPlayer().getUniqueId().toString();
+			String subPath = yml.getPersonalWorldPath(e.getPlayer());
 			
-			World unloadWorld = Bukkit.getServer().getWorld(subPath);
+			World unloadWorld = Bukkit.getWorld(subPath);
 			
 			if(Bukkit.getServer().getWorlds().contains(unloadWorld)){
 				

@@ -9,11 +9,12 @@ import org.bukkit.plugin.Plugin;
 
 import personal.world.PersonalWorld;
 import personal.world.commands.IPersonalCommand;
+import personal.world.file.manager.FileManager;
 
 public class CmdPersonalWorld implements IPersonalCommand{
 	private final Plugin plugin = PersonalWorld.plugin;
 	
-	private String worldPath = plugin.getConfig().getString("WorldPath");
+	private FileManager yml = FileManager.getInstance();
 
 	
 	/***********************************************************
@@ -31,7 +32,7 @@ public class CmdPersonalWorld implements IPersonalCommand{
 		
 		Player p = (Player) sender;
 			
-		String subPath = worldPath + "/" + p.getUniqueId().toString();
+		String subPath = yml.getPersonalWorldPath(p);
 		
 		Location loc = new Location(Bukkit.getWorld(subPath), 100, 100, 100);
 		

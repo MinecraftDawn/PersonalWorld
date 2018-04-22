@@ -16,18 +16,14 @@ public class PlayerLogin implements Listener{
 	
 	private final Plugin plugin = PersonalWorld.plugin;
 	
-	private String worldPath;
-	
-	public PlayerLogin() {
-		worldPath = plugin.getConfig().getString("WorldPath");
-	}
+	private FileManager yml = FileManager.getInstance();
 
 	@EventHandler
 	public void onPlayerLoginEvent(PlayerLoginEvent e){
 		
 		if(plugin.getConfig().getBoolean("AutoCreateWorld")){ //If auto create world option was enable
 			
-			String subPath = worldPath + "/" + e.getPlayer().getUniqueId().toString();
+			String subPath = yml.getPersonalWorldPath(e.getPlayer());
 			
 			WorldCreator perWorld = new WorldCreator(subPath);
 			

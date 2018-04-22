@@ -14,7 +14,7 @@ import personal.world.commands.IPersonalCommand;
 import personal.world.commands.personalworld.CmdPersonalWorld;
 import personal.world.file.manager.FileManager;
 
-public class CmdPersonalWorldTeleport implements IPersonalCommand{
+public class CmdPersonalWorldTp implements IPersonalCommand{
 	
 	private final Plugin plugin = PersonalWorld.plugin;
 	
@@ -72,8 +72,6 @@ public class CmdPersonalWorldTeleport implements IPersonalCommand{
 		String subPath = worldPath + "/" + tpworld.toString();
 		
 		Location loc = new Location(Bukkit.getWorld(subPath), 100, 100, 100);
-		
-		
 		
 		p.teleport(loc);
 	}

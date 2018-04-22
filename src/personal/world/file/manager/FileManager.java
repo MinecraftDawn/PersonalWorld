@@ -21,6 +21,8 @@ public class FileManager {
 	
 	private static FileManager instance = new FileManager();
 	
+	private String worldPath = plugin.getConfig().getString("WorldPath");
+	
 	public static FileManager getInstance(){
 		return instance;		
 	}
@@ -54,6 +56,10 @@ public class FileManager {
 		}
 		
 		return field;
+	}
+	
+	public String getPersonalWorldPath(Player p){
+		return (worldPath + p.getUniqueId().toString());
 	}
 	
 	public Object getPmsYmlObj(String ... args){ 

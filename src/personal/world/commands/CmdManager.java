@@ -5,7 +5,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 import personal.world.commands.personalworld.CmdPersonalWorld;
-import personal.world.commands.personalworld.tp.CmdPersonalWorldTeleport;
+import personal.world.commands.personalworld.info.CmdPersonalWorldInfo;
+import personal.world.commands.personalworld.tp.CmdPersonalWorldTp;
 
 public class CmdManager implements CommandExecutor{
 
@@ -26,12 +27,26 @@ public class CmdManager implements CommandExecutor{
 				if(args.length == 1){
 					
 					sender.sendMessage("參數不夠");
+					
 					return true;
 				}
 				
-				CmdPersonalWorldTeleport tp = new CmdPersonalWorldTeleport();
+				CmdPersonalWorldTp tp = new CmdPersonalWorldTp();
 				
 				tp.run(sender, cmd, args);
+				
+				return true;
+			}
+			
+			if(args[0].equalsIgnoreCase("info")){
+				if(args.length == 1){
+					
+					CmdPersonalWorldInfo info = new CmdPersonalWorldInfo();
+					
+					info.run(sender, cmd, args);
+					
+					return true;
+				}
 			}
 			
 		}
