@@ -29,14 +29,14 @@ public class CmdPersonalWorldTeleport implements IPersonalCommand{
 		
 		Player target = Bukkit.getPlayerExact(args[1]);
 		
-//		if(sender.equals(target)){
-//			
-//			CmdPersonalWorld PW = new CmdPersonalWorld();
-//			
-//			PW.run(sender, cmd, args);
-//			
-//			return;
-//		}
+		if(sender.equals(target)){
+			
+			CmdPersonalWorld PW = new CmdPersonalWorld();
+			
+			PW.run(sender, cmd, args);
+			
+			return;
+		}
 		
 		if(!sender.hasPermission("personalworld.tp.other")){
 			
