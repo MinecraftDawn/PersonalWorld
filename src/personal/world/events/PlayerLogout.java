@@ -28,7 +28,7 @@ public class PlayerLogout implements Listener{
 			
 			World unloadWorld = Bukkit.getServer().getWorld(subPath);
 			
-			if(Bukkit.getServer().getWorlds().contains(unloadWorld)){ 
+			if(Bukkit.getServer().getWorlds().contains(unloadWorld)){
 				
 				Bukkit.unloadWorld(subPath, true);
 				

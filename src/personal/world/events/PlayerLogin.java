@@ -50,7 +50,7 @@ public class PlayerLogin implements Listener{
 			
 			
 			//add player to permission file
-			FileManager manager = new FileManager();
+			FileManager manager = FileManager.getInstance();
 			
 			manager.createPremission(e.getPlayer());
 		}
