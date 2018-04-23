@@ -88,6 +88,18 @@ public class FileManager {
 		return pmsData.getStringList(arrToStr(args));
 	}
 	
+	public void addPermission(Player p,String data) {
+		YamlConfiguration yml = pmsData;
+		
+		String path = p.getUniqueId() + ".Permission";
+		
+		List<String> list = yml.getStringList(path);
+		
+		list.add(data);
+		
+		yml.set(path,list);
+	}
+	
 	public void setPmsYml(Object ... args){ //setYmlFile(args[0] , args[1] , args[2] , ... , data)
 		YamlConfiguration yml = pmsData;
 		
