@@ -1,6 +1,6 @@
 name: PersonalWorld
 main: personal.world.PersonalWorld
-version: 0.6.1
+version: 0.6.2
 
 commands:
   personalworld:
@@ -9,8 +9,21 @@ commands:
     aliases: [pw]   
 permissions:
   personalworld.tp:
-    default: op
-    description: 主要權限  
-  personalworld.tp.other:
-    default: op
-    description: 主要權限
+    default: true
+    description: 傳送 
+    
+  personalworld.tpOther:
+    default: true
+    description: 傳送其他世界
+    
+  personalworld.info:
+    default: true
+    description: 查看世界權限
+    
+  personalworld.add:
+    default: true
+    description: 新增世界權限
+    
+  personalworld.remove:
+    default: true
+    description: 移除世界權限

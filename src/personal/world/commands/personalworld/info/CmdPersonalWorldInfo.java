@@ -25,6 +25,13 @@ public class CmdPersonalWorldInfo implements IPersonalCommand{
 	@Override
 	public void run(CommandSender sender, Command cmd, String[] args) {
 		
+		if(!sender.hasPermission("personalworld.remove")){
+			
+			sender.sendMessage("你沒系統權限");
+			
+			return;
+		}
+		
 		Player p = (Player) sender;
 		
 		String world  = yml.getPersonalWorldPath(p);

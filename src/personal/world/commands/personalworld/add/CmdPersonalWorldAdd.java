@@ -20,6 +20,13 @@ public class CmdPersonalWorldAdd implements IPersonalCommand{
 	@Override
 	public void run(CommandSender sender, Command cmd, String[] args) {
 		
+		if(!sender.hasPermission("personalworld.add")){
+			
+			sender.sendMessage("你沒系統權限");
+			
+			return;
+		}
+		
 		if(args.length < 2) {
 			
 			sender.sendMessage("參數不夠");
