@@ -24,7 +24,7 @@ public class CmdPersonalWorldAdd implements IPersonalCommand{
 		
 		if(args.length < 2) {
 			
-			sender.sendMessage("°Ñ¼Æ¤£°÷");
+			sender.sendMessage("åƒæ•¸ä¸å¤ ");
 			
 			return;
 		}
@@ -35,7 +35,7 @@ public class CmdPersonalWorldAdd implements IPersonalCommand{
 		
 		if(target == null) {
 			
-			sender.sendMessage("¤£¦s¦b" + args[1]);
+			sender.sendMessage("æ‰¾ä¸åˆ°çŽ©å®¶" + args[1]);
 			
 			return;
 		}
