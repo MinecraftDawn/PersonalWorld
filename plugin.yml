@@ -1,6 +1,6 @@
 name: PersonalWorld
 main: personal.world.PersonalWorld
-version: 0.6.0
+version: 0.6.1
 
 commands:
   personalworld:
