@@ -40,7 +40,6 @@ public class CmdPersonalWorldInfo implements IPersonalCommand{
 				if(offplayer.hasPlayedBefore()){
 					
 					sender.sendMessage("test" + offplayer.getName());
-
 				}
 				
 			}
