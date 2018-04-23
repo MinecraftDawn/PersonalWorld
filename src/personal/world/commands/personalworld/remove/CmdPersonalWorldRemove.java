@@ -1,21 +1,19 @@
-package personal.world.commands.personalworld.add;
+package personal.world.commands.personalworld.remove;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
 
-import personal.world.PersonalWorld;
 import personal.world.commands.IPersonalCommand;
 import personal.world.file.manager.FileManager;
 
-public class CmdPersonalWorldAdd implements IPersonalCommand{
+public class CmdPersonalWorldRemove implements IPersonalCommand{
 	
 	private FileManager yml = FileManager.getInstance();
 
 	/***********************************************************
-	 * Add personal world permission
+	 * Remove personal world permission
 	 ***********************************************************/
 	@Override
 	public void run(CommandSender sender, Command cmd, String[] args) {
@@ -38,7 +36,7 @@ public class CmdPersonalWorldAdd implements IPersonalCommand{
 			return;
 		}
 		
-		if(yml.addPermission(p, target.getName())){
+		if(yml.removePermission(p, target.getName())){
 			sender.sendMessage("成功");
 		}else{
 			sender.sendMessage("失敗");
