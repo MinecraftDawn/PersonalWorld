@@ -1,7 +1,5 @@
 package personal.world.commands.personalworld.tp;
 
-import java.util.UUID;
-
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -18,8 +16,6 @@ import personal.world.file.manager.FileManager;
 public class CmdPersonalWorldTp implements IPersonalCommand{
 	
 	private final Plugin plugin = PersonalWorld.plugin;
-	
-	private String worldPath = plugin.getConfig().getString("WorldPath");
 	
 	private FileManager yml = FileManager.getInstance();
 	
@@ -71,8 +67,6 @@ public class CmdPersonalWorldTp implements IPersonalCommand{
 		if(! Bukkit.getServer().getWorlds().contains(tarWorld)){
 			
 			sender.sendMessage("不存在的世界： " + args[1]);
-			
-			sender.sendMessage(path);
 			
 			return;
 		}
