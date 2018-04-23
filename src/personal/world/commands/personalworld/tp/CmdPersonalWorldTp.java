@@ -15,13 +15,10 @@ import personal.world.file.manager.FileManager;
 
 public class CmdPersonalWorldTp implements IPersonalCommand{
 	
-	private final Plugin plugin = PersonalWorld.plugin;
-	
 	private FileManager yml = FileManager.getInstance();
 	
-	
 	/***********************************************************
-	 * Teleport command sender to his personal world 
+	 * Teleport command sender to other's personal world 
 	 ***********************************************************/
 	@Override
 	public void run(CommandSender sender, Command cmd, String[] args) {
