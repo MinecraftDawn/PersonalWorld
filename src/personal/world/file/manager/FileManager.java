@@ -59,22 +59,32 @@ public class FileManager {
 	}
 	
 	public String getPersonalWorldPath(Player p){
-		return (worldPath + p.getUniqueId().toString());
+		loadData();
+		
+		return (worldPath + "/" + p.getUniqueId().toString());
 	}
 	
 	public Object getPmsYmlObj(String ... args){ 
+		loadData();
+		
 		return pmsData.get(arrToStr(args));
 	}
 	
 	public Boolean getPmsYmlBool(String ... args){ 
+		loadData();
+
 		return pmsData.getBoolean(arrToStr(args));
 	}
 	
 	public String getPmsYmlStr(String ... args){ 
+		loadData();
+		
 		return pmsData.getString(arrToStr(args));
 	}
 	
 	public List<String> getPmsYmlStrList(String ... args){ 
+		loadData();
+		
 		return pmsData.getStringList(arrToStr(args));
 	}
 	
@@ -118,14 +128,14 @@ public class FileManager {
 		
 		String[] tpPermission = {};
 		
-		setPmsYml(uuid,"Owner",name);
 		
-		if(! pmsData.contains(uuid + ".Permission")){
+		if(! pmsData.contains(uuid)){
 			
+			setPmsYml(uuid,"Owner",name);
+		
 			setPmsYml(uuid,"Permission",tpPermission);
 		}
 		
-		saveData();
 	}
 	
 }
