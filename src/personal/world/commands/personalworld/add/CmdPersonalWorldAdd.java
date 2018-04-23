@@ -26,7 +26,7 @@ public class CmdPersonalWorldAdd implements IPersonalCommand{
 		
 		Player p = (Player) sender;
 		
-		Player target = Bukkit.getPlayerExact(args[0]);
+		Player target = Bukkit.getPlayerExact(args[1]);
 		
 		if(target == null) {
 			

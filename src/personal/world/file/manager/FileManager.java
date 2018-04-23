@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -89,16 +90,28 @@ public class FileManager {
 		return pmsData.getStringList(arrToStr(args));
 	}
 	
-	public void addPermission(Player p,String data) {
+	public void addPermission(Player owner,String target) {
 		YamlConfiguration yml = pmsData;
 		
-		String path = p.getUniqueId() + ".Permission";
+		String path = owner.getUniqueId() + ".Permission";
 		
 		List<String> list = yml.getStringList(path);
 		
-		list.add(data);
+		Player p = Bukkit.getPlayerExact(target);
 		
-		yml.set(path,list);
+		if(p != null){
+			if(yml.getStringList(path).contains(p.getUniqueId().toString())) return;
+			
+			list.add(p.getUniqueId().toString());
+			
+			yml.set(path,list);
+			
+			saveData();
+		}
+		
+		
+		
+		
 	}
 	
 	public void setPmsYml(Object ... args){ //setYmlFile(args[0] , args[1] , args[2] , ... , data)

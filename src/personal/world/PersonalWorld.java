@@ -19,10 +19,12 @@ public class PersonalWorld extends JavaPlugin{
 	
 	public void onEnable(){
 		plugin = this;
+		
 		/***********************************************************
 		 * If "plugin.yml" not exists,copy one in datafolder 
 		 ***********************************************************/
 		if(!new File(getDataFolder(), "config.yml").exists()){
+			
 			saveDefaultConfig();
 			
 			reloadConfig(); 

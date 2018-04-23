@@ -5,6 +5,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 import personal.world.commands.personalworld.CmdPersonalWorld;
+import personal.world.commands.personalworld.add.CmdPersonalWorldAdd;
 import personal.world.commands.personalworld.info.CmdPersonalWorldInfo;
 import personal.world.commands.personalworld.tp.CmdPersonalWorldTp;
 
@@ -48,6 +49,14 @@ public class CmdManager implements CommandExecutor{
 					return true;
 				}
 			}
+			
+			if(args[0].equalsIgnoreCase("add")){ //pw add
+				
+				CmdPersonalWorldAdd add = new CmdPersonalWorldAdd();
+				 
+				add.run(sender, cmd, args);
+			}
+			
 			
 		}
 		return true;

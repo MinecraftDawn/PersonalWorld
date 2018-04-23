@@ -16,10 +16,12 @@ import personal.world.file.manager.FileManager;
 
 public class CmdPersonalWorldInfo implements IPersonalCommand{
 	
-	private final Plugin plugin = PersonalWorld.plugin;
-	
 	private FileManager yml = FileManager.getInstance();
 
+	
+	/***********************************************************
+	 * Get who has sender's personal world permission
+	 ***********************************************************/
 	@Override
 	public void run(CommandSender sender, Command cmd, String[] args) {
 		
