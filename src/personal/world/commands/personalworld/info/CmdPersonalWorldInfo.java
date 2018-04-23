@@ -3,6 +3,7 @@ package personal.world.commands.personalworld.info;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -34,10 +35,13 @@ public class CmdPersonalWorldInfo implements IPersonalCommand{
 				
 				UUID uuid = UUID.fromString(str);
 				
-				Player hasPermission = Bukkit.getPlayer(uuid); //error 
+				OfflinePlayer offplayer = Bukkit.getOfflinePlayer(uuid);
 				
-				
-				sender.sendMessage(hasPermission.getName());
+				if(offplayer.hasPlayedBefore()){
+					
+					sender.sendMessage("test" + offplayer.getName());
+
+				}
 				
 			}
 		}
