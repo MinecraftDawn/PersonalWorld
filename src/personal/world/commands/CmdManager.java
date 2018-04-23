@@ -3,6 +3,7 @@ package personal.world.commands;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import personal.world.commands.personalworld.CmdPersonalWorld;
 import personal.world.commands.personalworld.add.CmdPersonalWorldAdd;
@@ -16,6 +17,9 @@ public class CmdManager implements CommandExecutor{
 		if(label.equalsIgnoreCase("PW") || label.equalsIgnoreCase("PersonalWorld")){ //pw
 			
 			if(args.length == 0){
+				
+				if(! (sender instanceof Player)) return true; //Player only
+				
 				CmdPersonalWorld PW = new CmdPersonalWorld();
 				
 				PW.run(sender, cmd, args);
@@ -32,6 +36,8 @@ public class CmdManager implements CommandExecutor{
 					return true;
 				}
 				
+				if(! (sender instanceof Player)) return true; //Player only
+				
 				CmdPersonalWorldTp tp = new CmdPersonalWorldTp();
 				
 				tp.run(sender, cmd, args);
@@ -42,6 +48,8 @@ public class CmdManager implements CommandExecutor{
 			if(args[0].equalsIgnoreCase("info")){ //pw info
 				if(args.length == 1){
 					
+					if(! (sender instanceof Player)) return true; //Player only
+					
 					CmdPersonalWorldInfo info = new CmdPersonalWorldInfo();
 					
 					info.run(sender, cmd, args);
@@ -51,6 +59,8 @@ public class CmdManager implements CommandExecutor{
 			}
 			
 			if(args[0].equalsIgnoreCase("add")){ //pw add
+				
+				if(! (sender instanceof Player)) return true; //Player only
 				
 				CmdPersonalWorldAdd add = new CmdPersonalWorldAdd();
 				 
