@@ -90,7 +90,7 @@ public class FileManager {
 		return pmsData.getStringList(arrToStr(args));
 	}
 	
-	public void addPermission(Player owner,String target) {
+	public Boolean addPermission(Player owner,String target) {
 		YamlConfiguration yml = pmsData;
 		
 		String path = owner.getUniqueId() + ".Permission";
@@ -100,17 +100,52 @@ public class FileManager {
 		Player p = Bukkit.getPlayerExact(target);
 		
 		if(p != null){
-			if(yml.getStringList(path).contains(p.getUniqueId().toString())) return;
+			
+			if(yml.getStringList(path).contains(p.getUniqueId().toString())){
+				
+				return false;
+			}
 			
 			list.add(p.getUniqueId().toString());
 			
 			yml.set(path,list);
 			
 			saveData();
+			
+			return true;
 		}
 		
+		return false;
 		
+	}
+	
+	public Boolean removePermission(Player owner,String target) {
+		YamlConfiguration yml = pmsData;
 		
+		String path = owner.getUniqueId() + ".Permission";
+		
+		List<String> list = yml.getStringList(path);
+		
+		Player p = Bukkit.getPlayerExact(target);
+		
+		if(p != null){ 
+			
+			if(! yml.getStringList(path).contains(p.getUniqueId().toString())){
+				
+				return false;
+			}
+			
+			list.remove(p.getUniqueId().toString());
+			
+			yml.set(path,list);
+			
+			saveData();
+			
+			return true;
+			
+		}
+		
+		return false;
 		
 	}
 	

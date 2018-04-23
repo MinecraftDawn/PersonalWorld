@@ -14,6 +14,9 @@ public class CmdPersonalWorldAdd implements IPersonalCommand{
 	
 	private FileManager yml = FileManager.getInstance();
 
+	/***********************************************************
+	 * Add personal world permission
+	 ***********************************************************/
 	@Override
 	public void run(CommandSender sender, Command cmd, String[] args) {
 		
@@ -35,7 +38,11 @@ public class CmdPersonalWorldAdd implements IPersonalCommand{
 			return;
 		}
 		
-		yml.addPermission(p, target.getName());
+		if(yml.addPermission(p, target.getName())){
+			sender.sendMessage("成功");
+		}else{
+			sender.sendMessage("失敗");
+		}
 	}
 
 }
