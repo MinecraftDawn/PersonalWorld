@@ -38,7 +38,7 @@ public class CmdManager implements CommandExecutor{
 				return true;
 			}
 			
-			if(args[0].equalsIgnoreCase("info")){
+			if(args[0].equalsIgnoreCase("info")){ //pw info
 				if(args.length == 1){
 					
 					CmdPersonalWorldInfo info = new CmdPersonalWorldInfo();

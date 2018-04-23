@@ -1,9 +1,6 @@
 package personal.world.commands.personalworld.add;
 
-import java.lang.annotation.Target;
-
 import org.bukkit.Bukkit;
-import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -14,8 +11,6 @@ import personal.world.commands.IPersonalCommand;
 import personal.world.file.manager.FileManager;
 
 public class CmdPersonalWorldAdd implements IPersonalCommand{
-	
-	private final Plugin plugin = PersonalWorld.plugin;
 	
 	private FileManager yml = FileManager.getInstance();
 

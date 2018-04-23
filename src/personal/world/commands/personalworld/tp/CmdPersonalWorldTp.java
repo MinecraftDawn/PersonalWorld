@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -22,6 +23,10 @@ public class CmdPersonalWorldTp implements IPersonalCommand{
 	
 	private FileManager yml = FileManager.getInstance();
 	
+	
+	/***********************************************************
+	 * Teleport command sender to his personal world 
+	 ***********************************************************/
 	@Override
 	public void run(CommandSender sender, Command cmd, String[] args) {
 		
@@ -52,7 +57,6 @@ public class CmdPersonalWorldTp implements IPersonalCommand{
 			return;
 		}
 		
-		
 		if(! yml.getPmsYmlStrList(target.getUniqueId().toString(),"Permission").contains(p.getUniqueId().toString())){
 			
 			sender.sendMessage("你沒該世界權限");
@@ -60,18 +64,20 @@ public class CmdPersonalWorldTp implements IPersonalCommand{
 			return;
 		}
 		
-		UUID tpworld = Bukkit.getServer().getPlayer(args[1]).getUniqueId();
+		String path = yml.getPersonalWorldPath(p);
 		
-		if(! Bukkit.getServer().getWorlds().contains(tpworld)){
+		World tarWorld = Bukkit.getWorld(path);
+		
+		if(! Bukkit.getServer().getWorlds().contains(tarWorld)){
 			
 			sender.sendMessage("不存在的世界： " + args[1]);
+			
+			sender.sendMessage(path);
 			
 			return;
 		}
 		
-		String subPath = worldPath + "/" + tpworld.toString();
-		
-		Location loc = new Location(Bukkit.getWorld(subPath), 100, 100, 100);
+		Location loc = new Location(Bukkit.getWorld(path), 100, 100, 100);
 		
 		p.teleport(loc);
 	}

@@ -32,9 +32,9 @@ public class CmdPersonalWorld implements IPersonalCommand{
 		
 		Player p = (Player) sender;
 			
-		String subPath = yml.getPersonalWorldPath(p);
+		String path = yml.getPersonalWorldPath(p);
 		
-		Location loc = new Location(Bukkit.getWorld(subPath), 100, 100, 100);
+		Location loc = new Location(Bukkit.getWorld(path), 100, 100, 100);
 		
 		p.teleport(loc);
 		
