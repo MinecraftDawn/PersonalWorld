@@ -20,7 +20,7 @@ public class CmdPersonalWorldAdd implements IPersonalCommand{
 	@Override
 	public void run(CommandSender sender, Command cmd, String[] args) {
 		
-		if(!sender.hasPermission("personalworld.add")){
+		if(!sender.hasPermission("personalworld.add")){ //have not permission of /pw add
 			
 			sender.sendMessage("你沒系統權限");
 			

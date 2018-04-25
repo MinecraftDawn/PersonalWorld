@@ -36,7 +36,7 @@ public class CmdPersonalWorldTp implements IPersonalCommand{
 			return;
 		}
 		
-		if(!sender.hasPermission("personalworld.tpOther")){
+		if(!sender.hasPermission("personalworld.tpOther")){ //have not permission of /pw tp <world>
 			
 			sender.sendMessage("你沒系統權限");
 			
