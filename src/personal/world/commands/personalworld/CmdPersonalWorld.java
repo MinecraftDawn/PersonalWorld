@@ -12,7 +12,6 @@ import personal.world.commands.IPersonalCommand;
 import personal.world.file.manager.FileManager;
 
 public class CmdPersonalWorld implements IPersonalCommand{
-	private final Plugin plugin = PersonalWorld.plugin;
 	
 	private FileManager yml = FileManager.getInstance();
 
