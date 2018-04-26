@@ -52,10 +52,8 @@ public class PersonalWorld extends JavaPlugin{
 		 * Register commands
 		 ***********************************************************/
 		Bukkit.getPluginCommand("personalworld").setExecutor((CommandExecutor) new CmdManager());
-		Bukkit.getPluginCommand("pw").setExecutor((CommandExecutor) new CmdManager());
 		
 		Bukkit.getPluginCommand("personalworldadmin").setExecutor((CommandExecutor) new CmdAdminManager());
-		Bukkit.getPluginCommand("pwadmin").setExecutor((CommandExecutor) new CmdAdminManager());
 		
 	}
 
