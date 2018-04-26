@@ -6,7 +6,11 @@ commands:
   personalworld:
     description: Teleport to your personal world.
     usage: /personalworld
-    aliases: [pw]   
+    aliases: [pw]  
+  personalworldadmin:
+    description: Admin of PersonalWorld
+    usage: /personalworld
+    aliases: [pwadmin]    
 permissions:
   personalworld.tp:
     default: true
