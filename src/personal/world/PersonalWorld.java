@@ -20,7 +20,7 @@ public class PersonalWorld extends JavaPlugin{
 		plugin = this;
 		
 		/***********************************************************
-		 * If "plugin.yml" not exists,copy one in datafolder 
+		 * If "plugin.yml" not exists,copy one in datafolder
 		 ***********************************************************/
 		if(!new File(getDataFolder(), "config.yml").exists()){
 			
