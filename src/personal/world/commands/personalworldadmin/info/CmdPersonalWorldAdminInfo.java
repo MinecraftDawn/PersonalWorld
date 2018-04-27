@@ -24,7 +24,7 @@ public class CmdPersonalWorldAdminInfo implements IPersonalCommand{
 			
 			sender.sendMessage("找不到玩家" + args[1]);
 			
-			return;
+			return; 
 		}
 		
 		for(String str : yml.getPmsYmlStrList(target.getUniqueId().toString(),"Permission")){
