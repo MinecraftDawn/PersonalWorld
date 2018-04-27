@@ -18,7 +18,7 @@ public class CmdPersonalWorldRemove implements IPersonalCommand{
 	@Override
 	public void run(CommandSender sender, Command cmd, String[] args) {
 		
-		if(!sender.hasPermission("personalworld.remove")){
+		if(!sender.hasPermission("personalworld.remove")){ 
 			
 			sender.sendMessage("你沒系統權限");
 			
