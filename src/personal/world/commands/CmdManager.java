@@ -14,10 +14,10 @@ import personal.world.commands.personalworld.tp.CmdPersonalWorldTp;
 public class CmdManager implements CommandExecutor{
 
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {			
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {		
+		if(! (sender instanceof Player)) return true; //Player only
+		
 		if(args.length == 0){
-			
-			if(! (sender instanceof Player)) return true; //Player only
 			
 			CmdPersonalWorld PW = new CmdPersonalWorld();
 			
@@ -35,8 +35,6 @@ public class CmdManager implements CommandExecutor{
 				return true;
 			}
 			
-			if(! (sender instanceof Player)) return true; //Player only
-			
 			CmdPersonalWorldTp tp = new CmdPersonalWorldTp();
 			
 			tp.run(sender, cmd, args);
@@ -46,8 +44,6 @@ public class CmdManager implements CommandExecutor{
 		
 		if(args[0].equalsIgnoreCase("info")){ //pw info
 			if(args.length == 1){
-				
-				if(! (sender instanceof Player)) return true; //Player only
 				
 				CmdPersonalWorldInfo info = new CmdPersonalWorldInfo();
 				
@@ -59,16 +55,12 @@ public class CmdManager implements CommandExecutor{
 		
 		if(args[0].equalsIgnoreCase("add")){ //pw add
 			
-			if(! (sender instanceof Player)) return true; //Player only
-			
 			CmdPersonalWorldAdd add = new CmdPersonalWorldAdd();
 			 
 			add.run(sender, cmd, args);
 		}
 		
 		if(args[0].equalsIgnoreCase("remove")){ //pw remove
-			
-			if(! (sender instanceof Player)) return true; //Player only
 			
 			CmdPersonalWorldRemove remove = new CmdPersonalWorldRemove();
 			 
