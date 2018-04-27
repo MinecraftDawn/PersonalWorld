@@ -17,7 +17,7 @@ public class CmdPersonalWorld implements IPersonalCommand{
 
 	
 	/***********************************************************
-	 * Teleport command sender to his personal world 
+	 * Teleport command sender to his personal world  
 	 ***********************************************************/
 	@Override
 	public void run(CommandSender sender, Command cmd, String[] args) {
