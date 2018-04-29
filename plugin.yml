@@ -1,6 +1,6 @@
 name: PersonalWorld
 main: personal.world.PersonalWorld
-version: 0.7.0
+version: 0.8.0
 
 commands:
   personalworld:
@@ -12,6 +12,9 @@ commands:
     usage: /personalworld
     aliases: [pwadmin]   
 permissions:
+  personalworld.admin:
+    default: op
+    description: 傳送
   personalworld.tp:
     default: true
     description: 傳送 
