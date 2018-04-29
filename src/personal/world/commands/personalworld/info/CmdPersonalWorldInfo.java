@@ -34,25 +34,19 @@ public class CmdPersonalWorldInfo implements IPersonalCommand{
 		
 		Player p = (Player) sender;
 		
-		String world  = yml.getPersonalWorldPath(p);
-		
-		World searchWorld = Bukkit.getWorld(world);
-		
-		if(Bukkit.getWorlds().contains(searchWorld)){
+		for(String str : yml.getPmsYmlStrList(p.getUniqueId().toString(),"Permission")){
 			
-			for(String str : yml.getPmsYmlStrList(p.getUniqueId().toString(),"Permission")){
+			UUID uuid = UUID.fromString(str);
+			
+			OfflinePlayer offplayer = Bukkit.getOfflinePlayer(uuid);
+			
+			if(offplayer.hasPlayedBefore()){
 				
-				UUID uuid = UUID.fromString(str);
-				
-				OfflinePlayer offplayer = Bukkit.getOfflinePlayer(uuid);
-				
-				if(offplayer.hasPlayedBefore()){
-					
-					sender.sendMessage(offplayer.getName());
-				}
-				
+				sender.sendMessage(offplayer.getName());
 			}
+			
 		}
+		
 	}
 
 }

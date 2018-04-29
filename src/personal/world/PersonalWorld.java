@@ -27,7 +27,7 @@ public class PersonalWorld extends JavaPlugin{
 			saveDefaultConfig();
 			
 			reloadConfig(); 
-		}
+		} 
 
 		
 		/***********************************************************

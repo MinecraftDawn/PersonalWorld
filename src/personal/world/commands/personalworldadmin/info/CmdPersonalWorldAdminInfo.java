@@ -18,7 +18,7 @@ public class CmdPersonalWorldAdminInfo implements IPersonalCommand{
 	@Override
 	public void run(CommandSender sender, Command cmd, String[] args) {
 		
-		Player target = Bukkit.getPlayerExact(args[1]);
+		OfflinePlayer target = Bukkit.getOfflinePlayer(args[1]);
 		
 		if(target == null) {
 			
@@ -26,6 +26,8 @@ public class CmdPersonalWorldAdminInfo implements IPersonalCommand{
 			
 			return; 
 		}
+		
+		sender.sendMessage(target.getUniqueId().toString());
 		
 		for(String str : yml.getPmsYmlStrList(target.getUniqueId().toString(),"Permission")){
 			

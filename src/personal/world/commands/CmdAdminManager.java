@@ -10,6 +10,13 @@ public class CmdAdminManager implements CommandExecutor{
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
+		if(!sender.hasPermission("personalworld.admin")){ //have not permission
+			
+			sender.sendMessage("你沒系統權限");
+			
+			return true; 
+		}
+		
 		if(args.length == 0) {
 			sender.sendMessage("參數不夠");
 			return true;
