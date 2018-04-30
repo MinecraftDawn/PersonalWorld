@@ -27,8 +27,6 @@ public class CmdPersonalWorldAdminInfo implements IPersonalCommand{
 			return; 
 		}
 		
-		sender.sendMessage(target.getUniqueId().toString());
-		
 		for(String str : yml.getPmsYmlStrList(target.getUniqueId().toString(),"Permission")){
 			
 			UUID uuid = UUID.fromString(str);
