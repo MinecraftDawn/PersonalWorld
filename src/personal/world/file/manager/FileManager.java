@@ -14,18 +14,41 @@ import org.bukkit.plugin.Plugin;
 import personal.world.PersonalWorld;
 
 public class FileManager {
-	private File permission =null;
+	private File permission;
 	
-	private YamlConfiguration pmsData = new YamlConfiguration();
+	private YamlConfiguration pmsData;
 	
-	private Plugin plugin = PersonalWorld.plugin;
+	private Plugin plugin;
 	
-	private static FileManager instance = new FileManager();
+	private String worldPath;
 	
-	private String worldPath = plugin.getConfig().getString("WorldPath");
+	private static FileManager instance;
 	
 	public static FileManager getInstance(){
+		
+		if(instance == null){
+			
+			instance = new FileManager();
+		}
+		
 		return instance;		
+	}
+	
+	private FileManager(){
+		permission = new File(plugin.getDataFolder(), "Permissions.yml");
+		
+		if(!permission.exists()){
+			plugin.saveResource("Permissions.yml", false);
+		}
+		
+		loadData();
+		
+		pmsData = new YamlConfiguration();
+		
+		plugin = PersonalWorld.plugin;
+		
+		worldPath = plugin.getConfig().getString("WorldPath");
+		
 	}
 	
 	private void loadData(){
@@ -169,17 +192,6 @@ public class FileManager {
 			yml.set(field, null);
 		
 		saveData();
-	}
-	
-	public FileManager(){
-		permission = new File(plugin.getDataFolder(), "Permissions.yml");
-		
-		if(!permission.exists()){
-			plugin.saveResource("Permissions.yml", false);
-		}
-		
-		loadData();
-		
 	}
 	
 	public void createPremission(Player p){
