@@ -37,7 +37,7 @@ public class CmdPersonalWorldAdd implements IPersonalCommand{
 		
 		OfflinePlayer target = Bukkit.getOfflinePlayer(args[1]);
 		
-		if(target == null || ! target.hasPlayedBefore()) {
+		if(target == null) {
 			
 			sender.sendMessage("找不到玩家" + args[1]);
 			

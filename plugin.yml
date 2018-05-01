@@ -1,6 +1,6 @@
 name: PersonalWorld
 main: personal.world.PersonalWorld
-version: 0.11.0
+version: 1.0.0
 
 commands:
   personalworld:
@@ -14,7 +14,8 @@ commands:
 permissions:
   personalworld.admin:
     default: op
-    description: 傳送
+    description: 最強大的權限
+    
   personalworld.tp:
     default: true
     description: 傳送 

@@ -190,7 +190,37 @@ public class FileManager {
 		
 		List<String> list = yml.getStringList(path);
 		
-		Player p = Bukkit.getPlayerExact(target);
+		OfflinePlayer p = Bukkit.getOfflinePlayer(target);
+		
+		if(p != null){ 
+			
+			if(! yml.getStringList(path).contains(p.getUniqueId().toString())){
+				
+				return false;
+			}
+			
+			list.remove(p.getUniqueId().toString());
+			
+			yml.set(path,list);
+			
+			saveData();
+			
+			return true;
+			
+		}
+		
+		return false;
+		
+	}
+	
+	public Boolean removePermission(OfflinePlayer owner,String target) {
+		YamlConfiguration yml = pmsData;
+		
+		String path = owner.getUniqueId() + ".Permission";
+		
+		List<String> list = yml.getStringList(path);
+		
+		OfflinePlayer p = Bukkit.getOfflinePlayer(target);
 		
 		if(p != null){ 
 			

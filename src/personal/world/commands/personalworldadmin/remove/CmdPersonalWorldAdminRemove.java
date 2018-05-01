@@ -1,4 +1,4 @@
-package personal.world.commands.personalworldadmin.add;
+package personal.world.commands.personalworldadmin.remove;
 
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
@@ -8,20 +8,18 @@ import org.bukkit.command.CommandSender;
 import personal.world.commands.IPersonalCommand;
 import personal.world.file.manager.FileManager;
 
-public class CmdPersonalWorldAdminAdd implements IPersonalCommand{
+public class CmdPersonalWorldAdminRemove implements IPersonalCommand{
 	
 	private FileManager yml = FileManager.getInstance();
 
 	@Override
 	public void run(CommandSender sender, Command cmd, String[] args) {
-		
 		if(args.length < 3) {
 			
 			sender.sendMessage("參數不夠");
 			
 			return;
 		}
-		
 		
 		OfflinePlayer pmsWorld = Bukkit.getOfflinePlayer(args[1]);
 		
@@ -36,16 +34,16 @@ public class CmdPersonalWorldAdminAdd implements IPersonalCommand{
 		
 		if(target == null) {
 			
-			sender.sendMessage("找不到玩家" + args[2]);
+			sender.sendMessage("找不到玩家" + args[1]);
 			
 			return;
 		}
 		
-		if(yml.addPermission(pmsWorld, target.getName())){
+		if(yml.removePermission(pmsWorld, target.getName())){
 			sender.sendMessage("成功");
 		}else{
 			sender.sendMessage("失敗");
-		}		
+		}
 	}
 
 }

@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 
 import personal.world.commands.personalworldadmin.add.CmdPersonalWorldAdminAdd;
 import personal.world.commands.personalworldadmin.info.CmdPersonalWorldAdminInfo;
+import personal.world.commands.personalworldadmin.remove.CmdPersonalWorldAdminRemove;
 import personal.world.commands.personalworldadmin.tp.CmdPersonalWorldAdminTp;
 
 public class CmdAdminManager implements CommandExecutor{
@@ -50,6 +51,13 @@ public class CmdAdminManager implements CommandExecutor{
 			CmdPersonalWorldAdminAdd add = new CmdPersonalWorldAdminAdd();
 			
 			add.run(sender, cmd, args);
+		}
+		
+		if(args[0].equalsIgnoreCase("remove")){
+			CmdPersonalWorldAdminRemove remove = new CmdPersonalWorldAdminRemove();
+			
+			remove.run(sender, cmd, args);
+			
 		}
 		return true;
 	}
