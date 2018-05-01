@@ -1,12 +1,11 @@
 package personal.world.commands.personalworld.add;
 
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
 
-import personal.world.PersonalWorld;
 import personal.world.commands.IPersonalCommand;
 import personal.world.file.manager.FileManager;
 
@@ -36,9 +35,9 @@ public class CmdPersonalWorldAdd implements IPersonalCommand{
 		
 		Player p = (Player) sender;
 		
-		Player target = Bukkit.getPlayerExact(args[1]);
+		OfflinePlayer target = Bukkit.getOfflinePlayer(args[1]);
 		
-		if(target == null) {
+		if(target == null || ! target.hasPlayedBefore()) {
 			
 			sender.sendMessage("找不到玩家" + args[1]);
 			

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -115,6 +116,8 @@ public class FileManager {
 	}
 	
 	public Boolean addPermission(Player owner,String target) {
+		loadData();
+		
 		YamlConfiguration yml = pmsData;
 		
 		String path = owner.getUniqueId() + ".Permission";
@@ -122,6 +125,43 @@ public class FileManager {
 		List<String> list = yml.getStringList(path);
 		
 		Player p = Bukkit.getPlayerExact(target);
+		
+		if(p != null){
+			
+			if(yml.getStringList(path).contains(p.getUniqueId().toString())){
+				
+				return false;
+			}
+			
+			list.add(p.getUniqueId().toString());
+			
+			yml.set(path,list);
+			
+			saveData();
+			
+			return true;
+		}
+		
+		return false;
+		
+	}
+	
+	public Boolean addPermission(OfflinePlayer owner,String target) {
+		
+		if(! owner.hasPlayedBefore() || owner == null || ! hasWorld(owner.getUniqueId().toString())){
+			
+			return false;
+		}
+		
+		loadData();
+		
+		YamlConfiguration yml = pmsData;
+		
+		String path = owner.getUniqueId() + ".Permission";
+		
+		List<String> list = yml.getStringList(path);
+		
+		OfflinePlayer p = Bukkit.getOfflinePlayer(target);
 		
 		if(p != null){
 			
@@ -181,7 +221,8 @@ public class FileManager {
 		Object data = args[args.length-1];
 		
 		for(int i = 1; i < args.length-1 ; i++){
-			field += "." + args[i].toString() ;
+			
+			field += "." + args[i].toString();
 		}
 		
 		if(data != null)
@@ -210,6 +251,16 @@ public class FileManager {
 			setPmsYml(uuid,"Permission",tpPermission);
 		}
 		
+	}
+	
+	public Boolean hasWorld(String uuid){
+		
+		if(pmsData.contains(uuid)){
+			
+			return true;
+		}
+		
+		return false;
 	}
 	
 }
