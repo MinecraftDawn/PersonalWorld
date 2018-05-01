@@ -24,7 +24,7 @@ public class FileManager {
 	
 	private static FileManager instance;
 	
-	public static FileManager getInstance(){
+	public static synchronized FileManager getInstance(){
 		
 		if(instance == null){
 			
@@ -35,6 +35,13 @@ public class FileManager {
 	}
 	
 	private FileManager(){
+		
+		plugin = PersonalWorld.plugin;
+		
+		worldPath = plugin.getConfig().getString("WorldPath");
+		
+		pmsData = new YamlConfiguration();
+		
 		permission = new File(plugin.getDataFolder(), "Permissions.yml");
 		
 		if(!permission.exists()){
@@ -42,12 +49,6 @@ public class FileManager {
 		}
 		
 		loadData();
-		
-		pmsData = new YamlConfiguration();
-		
-		plugin = PersonalWorld.plugin;
-		
-		worldPath = plugin.getConfig().getString("WorldPath");
 		
 	}
 	

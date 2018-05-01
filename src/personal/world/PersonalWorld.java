@@ -11,6 +11,7 @@ import personal.world.commands.CmdAdminManager;
 import personal.world.commands.CmdManager;
 import personal.world.events.PlayerLogin;
 import personal.world.events.PlayerLogout;
+import personal.world.file.manager.FileManager;
 
 public class PersonalWorld extends JavaPlugin{
 	
@@ -36,7 +37,6 @@ public class PersonalWorld extends JavaPlugin{
 		File path = new File("./"+ getConfig().getString("WorldPath"));
 		
 		if(!path.exists()) path.mkdirs();
-		
 		
 		
 		/***********************************************************
