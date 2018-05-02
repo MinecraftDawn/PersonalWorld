@@ -5,9 +5,7 @@ import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
 
-import personal.world.PersonalWorld;
 import personal.world.commands.IPersonalCommand;
 import personal.world.file.manager.FileManager;
 
