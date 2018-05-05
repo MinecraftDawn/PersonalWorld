@@ -1,4 +1,4 @@
-package personal.world.file.manager;
+package personal.world.file;
 
 import java.io.File;
 import java.io.FileNotFoundException;

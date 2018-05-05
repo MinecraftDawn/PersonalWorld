@@ -8,7 +8,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.Plugin;
 
 import personal.world.PersonalWorld;
-import personal.world.file.manager.FileManager;
+import personal.world.file.FileManager;
 
 public class PlayerLogout implements Listener{
 	

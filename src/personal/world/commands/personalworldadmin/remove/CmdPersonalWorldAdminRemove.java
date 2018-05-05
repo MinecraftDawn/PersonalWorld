@@ -6,7 +6,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import personal.world.commands.IPersonalCommand;
-import personal.world.file.manager.FileManager;
+import personal.world.file.FileManager;
 
 public class CmdPersonalWorldAdminRemove implements IPersonalCommand{
 	

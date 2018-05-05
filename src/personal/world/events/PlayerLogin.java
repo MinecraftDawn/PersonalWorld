@@ -10,7 +10,7 @@ import org.bukkit.plugin.Plugin;
 
 import personal.world.PersonalWorld;
 import personal.world.PersonalWorldCreator;
-import personal.world.file.manager.FileManager;
+import personal.world.file.FileManager;
 
 public class PlayerLogin implements Listener{
 	

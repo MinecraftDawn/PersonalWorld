@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 import personal.world.commands.IPersonalCommand;
 import personal.world.commands.personalworld.CmdPersonalWorld;
-import personal.world.file.manager.FileManager;
+import personal.world.file.FileManager;
 
 public class CmdPersonalWorldAdminTp implements IPersonalCommand{
 	
