@@ -4,15 +4,11 @@ import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
-import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
 
-import personal.world.PersonalWorld;
 import personal.world.commands.IPersonalCommand;
-import personal.world.message.MessageManager;
 import personal.world.permission.PermissionManager;
 
 public class CmdPersonalWorldInfo implements IPersonalCommand{
@@ -26,11 +22,15 @@ public class CmdPersonalWorldInfo implements IPersonalCommand{
 	@Override
 	public void run(CommandSender sender, Command cmd, String[] args) {
 		
-		MessageManager a = MessageManager.getInstance();
+		msg.sendMsg(sender, "&1你沒系統權限");
+		
+//		System.out.println(msg.getConfig());
 		
 		if(!sender.hasPermission("personalworld.info")){ //have not permission of /pw info
 			
-			sender.sendMessage("你沒系統權限");
+			msg.sendMsg(sender, "你沒系統權限");
+			
+//			sender.sendMessage("你沒系統權限");
 			
 			return;
 		}

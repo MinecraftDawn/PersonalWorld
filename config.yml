@@ -2,8 +2,11 @@
 # This plugin Code by MinecraftDawn #
 #####################################
 
+#前綴
+Prefix: '[PersonalWorld]'
+
 #語言
-Language:
+Language: aa
 
 #個人世界資料夾存放位置
 #All personal world Directory path
