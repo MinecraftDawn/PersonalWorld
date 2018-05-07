@@ -11,11 +11,11 @@ import org.bukkit.plugin.Plugin;
 import personal.world.PersonalWorld;
 import personal.world.commands.IPersonalCommand;
 import personal.world.commands.personalworld.CmdPersonalWorld;
-import personal.world.file.FileManager;
+import personal.world.permission.PermissionManager;
 
 public class CmdPersonalWorldTp implements IPersonalCommand{
 	
-	private FileManager yml = FileManager.getInstance();
+	private PermissionManager yml = PermissionManager.getInstance();
 	
 	/***********************************************************
 	 * Teleport command sender to other's personal world 

@@ -10,13 +10,13 @@ import org.bukkit.plugin.Plugin;
 
 import personal.world.PersonalWorld;
 import personal.world.PersonalWorldCreator;
-import personal.world.file.FileManager;
+import personal.world.permission.PermissionManager;
 
 public class PlayerLogin implements Listener{
 	
 	private final Plugin plugin = PersonalWorld.plugin;
 	
-	private FileManager yml = FileManager.getInstance();
+	private PermissionManager yml = PermissionManager.getInstance();
 
 	@EventHandler
 	public void onPlayerLoginEvent(PlayerLoginEvent e){
@@ -46,7 +46,7 @@ public class PlayerLogin implements Listener{
 			
 			
 			//add player to permission file
-			FileManager manager = FileManager.getInstance();
+			PermissionManager manager = PermissionManager.getInstance();
 			
 			manager.createPremission(e.getPlayer());
 		}

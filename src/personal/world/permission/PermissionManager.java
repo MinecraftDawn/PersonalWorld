@@ -1,4 +1,4 @@
-package personal.world.file;
+package personal.world.permission;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,7 +14,7 @@ import org.bukkit.plugin.Plugin;
 
 import personal.world.PersonalWorld;
 
-public class FileManager {
+public class PermissionManager {
 	private File permission;
 	
 	private YamlConfiguration pmsData;
@@ -23,19 +23,19 @@ public class FileManager {
 	
 	private String worldPath;
 	
-	private static FileManager instance;
+	private static PermissionManager instance;
 	
-	public static synchronized FileManager getInstance(){
+	public static synchronized PermissionManager getInstance(){
 		
 		if(instance == null){
 			
-			instance = new FileManager();
+			instance = new PermissionManager();
 		}
 		
 		return instance;		
 	}
 	
-	private FileManager(){
+	private PermissionManager(){
 		
 		plugin = PersonalWorld.plugin;
 		
@@ -50,7 +50,6 @@ public class FileManager {
 		}
 		
 		loadData();
-		
 	}
 	
 	private void loadData(){

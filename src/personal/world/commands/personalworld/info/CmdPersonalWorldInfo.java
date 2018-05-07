@@ -12,11 +12,12 @@ import org.bukkit.plugin.Plugin;
 
 import personal.world.PersonalWorld;
 import personal.world.commands.IPersonalCommand;
-import personal.world.file.FileManager;
+import personal.world.message.MessageManager;
+import personal.world.permission.PermissionManager;
 
 public class CmdPersonalWorldInfo implements IPersonalCommand{
 	
-	private FileManager yml = FileManager.getInstance();
+	private PermissionManager yml = PermissionManager.getInstance();
 
 	
 	/***********************************************************
@@ -24,6 +25,8 @@ public class CmdPersonalWorldInfo implements IPersonalCommand{
 	 ***********************************************************/
 	@Override
 	public void run(CommandSender sender, Command cmd, String[] args) {
+		
+		MessageManager a = MessageManager.getInstance();
 		
 		if(!sender.hasPermission("personalworld.info")){ //have not permission of /pw info
 			

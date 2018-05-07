@@ -7,11 +7,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
+
 import personal.world.commands.CmdAdminManager;
 import personal.world.commands.CmdManager;
 import personal.world.events.PlayerLogin;
 import personal.world.events.PlayerLogout;
-import personal.world.file.FileManager;
 
 public class PersonalWorld extends JavaPlugin{
 	
@@ -50,7 +50,6 @@ public class PersonalWorld extends JavaPlugin{
 		 * Register commands
 		 ***********************************************************/
 		Bukkit.getPluginCommand("personalworld").setExecutor((CommandExecutor) new CmdManager());
-		
 		Bukkit.getPluginCommand("personalworldadmin").setExecutor((CommandExecutor) new CmdAdminManager());
 		
 	}

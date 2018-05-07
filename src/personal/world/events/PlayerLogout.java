@@ -8,13 +8,13 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.Plugin;
 
 import personal.world.PersonalWorld;
-import personal.world.file.FileManager;
+import personal.world.permission.PermissionManager;
 
 public class PlayerLogout implements Listener{
 	
 	private Plugin plugin = PersonalWorld.plugin;
 	
-	private FileManager yml = FileManager.getInstance();
+	private PermissionManager yml = PermissionManager.getInstance();
 	
 	@EventHandler
 	public void onPlayerLogoutEvent(PlayerQuitEvent e){ 

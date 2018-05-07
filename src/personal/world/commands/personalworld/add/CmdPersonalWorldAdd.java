@@ -7,11 +7,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import personal.world.commands.IPersonalCommand;
-import personal.world.file.FileManager;
+import personal.world.permission.PermissionManager;
 
 public class CmdPersonalWorldAdd implements IPersonalCommand{
 	
-	private FileManager yml = FileManager.getInstance();
+	private PermissionManager yml = PermissionManager.getInstance();
 
 	/***********************************************************
 	 * Add personal world permission

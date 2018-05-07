@@ -2,6 +2,9 @@
 # This plugin Code by MinecraftDawn #
 #####################################
 
+#語言
+Language:
+
 #個人世界資料夾存放位置
 #All personal world Directory path
 #Example 'home'

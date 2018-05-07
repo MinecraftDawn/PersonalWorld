@@ -9,11 +9,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import personal.world.commands.IPersonalCommand;
-import personal.world.file.FileManager;
+import personal.world.permission.PermissionManager;
 
 public class CmdPersonalWorldAdminInfo implements IPersonalCommand{
 	
-	private FileManager yml = FileManager.getInstance();
+	private PermissionManager yml = PermissionManager.getInstance();
 
 	@Override
 	public void run(CommandSender sender, Command cmd, String[] args) {

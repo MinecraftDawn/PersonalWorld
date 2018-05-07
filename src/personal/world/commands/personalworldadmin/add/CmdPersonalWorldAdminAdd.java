@@ -6,11 +6,11 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import personal.world.commands.IPersonalCommand;
-import personal.world.file.FileManager;
+import personal.world.permission.PermissionManager;
 
 public class CmdPersonalWorldAdminAdd implements IPersonalCommand{
 	
-	private FileManager yml = FileManager.getInstance();
+	private PermissionManager yml = PermissionManager.getInstance();
 
 	@Override
 	public void run(CommandSender sender, Command cmd, String[] args) {
