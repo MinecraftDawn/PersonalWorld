@@ -38,7 +38,7 @@ public class CmdPersonalWorldTp implements IPersonalCommand{
 		
 		if(!sender.hasPermission("personalworld.tpOther")){ //have not permission of /pw tp <world>
 			
-			sender.sendMessage("你沒系統權限");
+			msg.sendMsg(sender, "PermissionDenied");
 			
 			return;
 		}
@@ -52,7 +52,7 @@ public class CmdPersonalWorldTp implements IPersonalCommand{
 		
 		if(! yml.getPmsYmlStrList(target.getUniqueId().toString(),"Permission").contains(p.getUniqueId().toString())){
 			
-			sender.sendMessage("你沒該世界權限");
+			msg.sendMsg(sender, "PermissionDeniedOfWorld");
 			
 			return;
 		}

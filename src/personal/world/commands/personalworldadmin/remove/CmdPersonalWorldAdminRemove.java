@@ -16,7 +16,7 @@ public class CmdPersonalWorldAdminRemove implements IPersonalCommand{
 	public void run(CommandSender sender, Command cmd, String[] args) {
 		if(args.length < 3) {
 			
-			sender.sendMessage("參數不夠");
+			msg.sendMsg(sender, "ParameterNotEnough");
 			
 			return;
 		}

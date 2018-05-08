@@ -37,20 +37,25 @@ public class MessageManager {
 		
 		if(! Message.exists()){
 			
-			plugin.saveResource("Chinese.yml", false);
-			
 			Message = new File(plugin.getDataFolder(), "Chinese.yml");
+			
+			if(! Message.exists())
+
+				plugin.saveResource("Chinese.yml", false);
 			
 		}
 		
 		prefix = plugin.getConfig().getString("Prefix");
 		
+		loadData();
 	}
 	
 	public static MessageManager getInstance(){
+		
 		if(instance == null){
 			
 			instance = new MessageManager();
+			
 		}
 		
 		return instance;
@@ -68,22 +73,21 @@ public class MessageManager {
 		}
 	}
 	
-	private void saveData(){
-		try {
-			msgData.save(Message);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public void sendMsg(Player p,String msg){
+	public void sendMsg(Player p,String config){
+		
+		String msg = getConfig(config);
+
 		msg = symbolToColor(msg);
 		
 		p.sendMessage(msg);
 	}
 
-	public void sendMsg(CommandSender sender,String msg){
+	public void sendMsg(CommandSender sender,String config){
+		
+		String msg = getConfig(config);
+
 		msg = symbolToColor(msg);
+		
 		
 		sender.sendMessage(msg);
 	}
@@ -96,8 +100,14 @@ public class MessageManager {
 		return msg;
 	}
 
-	public String getConfig(String msg){
-		return msgData.getString(msg);
+	public String getConfig(String config){
+		loadData();
 		
+		if(msgData.getString(config) != null)
+			return msgData.getString(config);
+		
+		else 
+			return "&4 '" + config + "' &fNot set";
 	}
+	
 }

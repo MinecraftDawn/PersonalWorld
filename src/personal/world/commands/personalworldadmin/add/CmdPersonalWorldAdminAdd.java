@@ -17,7 +17,7 @@ public class CmdPersonalWorldAdminAdd implements IPersonalCommand{
 		
 		if(args.length < 3) {
 			
-			sender.sendMessage("參數不夠");
+			msg.sendMsg(sender, "ParameterNotEnough");
 			
 			return;
 		}

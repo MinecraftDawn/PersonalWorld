@@ -6,7 +6,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 import personal.world.commands.IPersonalCommand;
 import personal.world.permission.PermissionManager;
@@ -17,6 +16,13 @@ public class CmdPersonalWorldAdminInfo implements IPersonalCommand{
 
 	@Override
 	public void run(CommandSender sender, Command cmd, String[] args) {
+		
+		if(args.length < 2){
+			
+			msg.sendMsg(sender, "ParameterNotEnough");
+			
+			return;
+		}
 		
 		OfflinePlayer target = Bukkit.getOfflinePlayer(args[1]);
 		

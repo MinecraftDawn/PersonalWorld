@@ -31,3 +31,7 @@ CopyWorld:
 #當玩家登出時卸載個人世界
 #When the player logout,unload his personal world
 AutoUnloadWorld: true
+
+#Version
+#版本
+Version: 1.0.0

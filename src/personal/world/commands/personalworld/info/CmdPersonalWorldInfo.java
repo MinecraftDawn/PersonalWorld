@@ -22,15 +22,9 @@ public class CmdPersonalWorldInfo implements IPersonalCommand{
 	@Override
 	public void run(CommandSender sender, Command cmd, String[] args) {
 		
-		msg.sendMsg(sender, "&1你沒系統權限");
-		
-//		System.out.println(msg.getConfig());
-		
 		if(!sender.hasPermission("personalworld.info")){ //have not permission of /pw info
 			
-			msg.sendMsg(sender, "你沒系統權限");
-			
-//			sender.sendMessage("你沒系統權限");
+			msg.sendMsg(sender, "PermissionDenied");
 			
 			return;
 		}

@@ -9,20 +9,23 @@ import personal.world.commands.personalworldadmin.add.CmdPersonalWorldAdminAdd;
 import personal.world.commands.personalworldadmin.info.CmdPersonalWorldAdminInfo;
 import personal.world.commands.personalworldadmin.remove.CmdPersonalWorldAdminRemove;
 import personal.world.commands.personalworldadmin.tp.CmdPersonalWorldAdminTp;
+import personal.world.message.MessageManager;
 
 public class CmdAdminManager implements CommandExecutor{
+	
+	private MessageManager msg = MessageManager.getInstance();
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 		if(!sender.hasPermission("personalworld.admin")){ //have not permission
 			
-			sender.sendMessage("你沒系統權限");
+			msg.sendMsg(sender, "PermissionDenied");
 			
 			return true; 
 		}
 		
 		if(args.length == 0) {
-			sender.sendMessage("參數不夠");
+			msg.sendMsg(sender, "ParameterNotEnough");
 			
 			return true;
 		}
