@@ -40,9 +40,9 @@ public class CmdPersonalWorldAdminRemove implements IPersonalCommand{
 		}
 		
 		if(yml.removePermission(pmsWorld, target.getName())){
-			sender.sendMessage("成功");
+			msg.sendMsg(sender, "PermissionEditSuccess");
 		}else{
-			sender.sendMessage("失敗");
+			msg.sendMsg(sender, "PermissionEditFail");
 		}
 	}
 

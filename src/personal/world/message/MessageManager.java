@@ -88,7 +88,6 @@ public class MessageManager {
 
 		msg = symbolToColor(msg);
 		
-		
 		sender.sendMessage(msg);
 	}
 	
@@ -107,7 +106,7 @@ public class MessageManager {
 			return msgData.getString(config);
 		
 		else 
-			return "&4 '" + config + "' &fNot set";
+			return "&4 " + config + " &fNot set";
 	}
 	
 }

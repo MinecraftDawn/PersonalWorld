@@ -35,8 +35,8 @@ public class PlayerLogin implements Listener{
 			}
 			
 			PersonalWorldCreator creator = new PersonalWorldCreator(perWorld);
-			
 
+			
 			//Make a new thread to create personal world 
 			Thread worldThread = new Thread(creator);
 			
