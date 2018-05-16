@@ -52,9 +52,7 @@ public class PersonalWorld extends JavaPlugin{
 		 ***********************************************************/
 		Bukkit.getPluginCommand("personalworld").setExecutor((CommandExecutor) new CmdManager());
 		Bukkit.getPluginCommand("personalworldadmin").setExecutor((CommandExecutor) new CmdAdminManager());
-		
-		MessageManager a;
-		
+				
 	}
 
 }
