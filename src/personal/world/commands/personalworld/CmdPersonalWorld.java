@@ -22,7 +22,7 @@ public class CmdPersonalWorld implements IPersonalCommand{
 		
 		if(! sender.hasPermission("personalworld.tp")){
 			
-			sender.sendMessage("你沒權限");
+			msg.sendMsg(sender, "ParameterNotEnough");
 			
 			return;
 		}
